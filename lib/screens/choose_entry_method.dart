@@ -3,13 +3,21 @@ import 'package:omegachat/screens/chats.dart';
 import 'package:omegachat/screens/create_account.dart';
 import 'package:omegachat/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import '../models/theme.dart';
 
 final auth = FirebaseAuth.instance;
 
-class ChooseEntryMethodScreen extends StatelessWidget {
+class ChooseEntryMethodScreen extends StatefulWidget {
   static const routeName = "/chooseEntryMethod";
   const ChooseEntryMethodScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ChooseEntryMethodScreen> createState() =>
+      _ChooseEntryMethodScreenState();
+}
+
+class _ChooseEntryMethodScreenState extends State<ChooseEntryMethodScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

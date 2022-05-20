@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:omegachat/screens/email_verification.dart';
 import 'package:omegachat/screens/chats.dart';
 import '../widgets/text_field.dart';
@@ -17,7 +18,7 @@ Future<void> createAccount(context, String username, String email,
   auth.createUserWithEmailAndPassword(email: email, password: password)
     ..then((value) async {
       String avatarUrl =
-          "https://cdn.pixabay.com/photo/2017/08/27/20/53/fishing-2687481_960_720.jpg";
+          "https://firebasestorage.googleapis.com/v0/b/omegachat-d6870.appspot.com/o/main.jpg?alt=media&token=e6820f66-807d-4611-9e1f-f93b4bfedb4e";
       if (image != null) {
         final storageRef = FirebaseStorage.instance.ref();
         final avatarRef = storageRef.child(auth.currentUser!.uid);
@@ -60,9 +61,16 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       maxHeight: 1800,
     );
     if (pickedFile != null) {
-      setState(() {
-        _image = File(pickedFile.path);
-      });
+      CroppedFile? res = await ImageCropper().cropImage(
+          sourcePath: pickedFile.path,
+          maxHeight: 500,
+          maxWidth: 500,
+          cropStyle: CropStyle.rectangle,
+          aspectRatio: CropAspectRatio(ratioX: 500, ratioY: 500));
+      if (res != null)
+        setState(() {
+          _image = File(res.path);
+        });
     }
   }
 
@@ -97,7 +105,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             radius: MediaQuery.of(context).size.height * .2,
                             backgroundImage: _image == null
                                 ? NetworkImage(
-                                    "https://cdn.pixabay.com/photo/2017/08/27/20/53/fishing-2687481_960_720.jpg")
+                                    "https://firebasestorage.googleapis.com/v0/b/omegachat-d6870.appspot.com/o/main.jpg?alt=media&token=e6820f66-807d-4611-9e1f-f93b4bfedb4e")
                                 : FileImage(_image!) as ImageProvider<Object>),
                         Positioned(
                           top: MediaQuery.of(context).size.height * .3,

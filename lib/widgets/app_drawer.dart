@@ -3,6 +3,7 @@ import 'package:omegachat/screens/add_chat.dart';
 import 'package:omegachat/screens/chats.dart';
 import 'package:omegachat/screens/choose_entry_method.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:omegachat/screens/settings.dart';
 
 final auth = FirebaseAuth.instance;
 
@@ -22,6 +23,7 @@ class _AppDrawerState extends State<AppDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Theme.of(context).drawerTheme.backgroundColor,
       child: Column(children: [
         Stack(
           children: [
@@ -62,7 +64,11 @@ class _AppDrawerState extends State<AppDrawer> {
         ),
         RawMaterialButton(
           onPressed: () {
-            print(ModalRoute.of(context)!.settings.name);
+            if (ModalRoute.of(context)!.settings.name != UserSettings.routeName)
+              Navigator.of(context)
+                  .pushReplacementNamed(UserSettings.routeName);
+            else
+              Navigator.of(context).pop();
           },
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

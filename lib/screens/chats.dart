@@ -55,6 +55,7 @@ class _ChatsPageState extends State<ChatsPage> {
                   print(chats);
                 })),
         appBar: AppBar(
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           centerTitle: true,
           title: Text("Omega Chat"),
         ),
@@ -68,18 +69,21 @@ class _ChatsPageState extends State<ChatsPage> {
                     child: ListView.builder(
                         itemCount: chats.length,
                         itemBuilder: (context, index) {
-                          return UserCard(
-                              onClick: () {
-                                Navigator.of(context)
-                                    .push(new MaterialPageRoute(
-                                        builder: ((context) => ChatScreen(
-                                              chatId:
-                                                  user!.chats[chats[index].id],
-                                              userId: chats[index].id,
-                                            ))));
-                              },
-                              imageUrl: chats[index].avatarUrl,
-                              username: chats[index].username);
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: UserCard(
+                                onClick: () {
+                                  Navigator.of(context)
+                                      .push(new MaterialPageRoute(
+                                          builder: ((context) => ChatScreen(
+                                                chatId: user!
+                                                    .chats[chats[index].id],
+                                                userId: chats[index].id,
+                                              ))));
+                                },
+                                imageUrl: chats[index].avatarUrl,
+                                username: chats[index].username),
+                          );
                         }))
                 : Padding(
                     padding: const EdgeInsets.all(70.0),
