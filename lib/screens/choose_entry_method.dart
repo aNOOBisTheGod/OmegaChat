@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 final auth = FirebaseAuth.instance;
 
 class ChooseEntryMethodScreen extends StatelessWidget {
+  static const routeName = "/chooseEntryMethod";
   const ChooseEntryMethodScreen({Key? key}) : super(key: key);
 
   @override
