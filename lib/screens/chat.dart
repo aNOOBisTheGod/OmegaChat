@@ -86,7 +86,7 @@ class _ChatScreenState extends State<ChatScreen> {
               child: CircularProgressIndicator(),
             )
           : Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 StreamBuilder(
                     stream: storage
@@ -99,17 +99,18 @@ class _ChatScreenState extends State<ChatScreen> {
                           child: Text("Nothing here"),
                         );
                       } else {
-                        return ListView(
-                            shrinkWrap: true,
-                            children: List.from(snapShot.data["messages"]
-                                .map((message) => OmegaMessage(
-                                      message: Message.fromJson(message),
-                                    ))));
+                        return Expanded(
+                          child: ListView(
+                              children: List.from(snapShot.data["messages"]
+                                  .map((message) => OmegaMessage(
+                                        message: Message.fromJson(message),
+                                      )))),
+                        );
                       }
                     }),
                 MainTextField(
                     controller: _messageController,
-                    hintText: "Insert email content")
+                    hintText: "Insert email content"),
               ],
             ),
     );

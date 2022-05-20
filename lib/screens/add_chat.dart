@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:omegachat/screens/chat.dart';
 import 'package:omegachat/widgets/app_drawer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:omegachat/widgets/user_card.dart';
 
 final storage = FirebaseFirestore.instance;
 final auth = FirebaseAuth.instance;
 
-Future<void> addChatWithUser(String id) async {
+Future<String?> addChatWithUser(String id) async {
   User? user = auth.currentUser;
   var doc = await storage.collection('users').doc(user!.uid).get();
   Map<String, Object> newDict = Map.from(doc["chats"]);
   if (newDict[id] != null) {
-    return;
+    return newDict[id] as String;
   }
   QuerySnapshot querySnapshot = await storage.collection('chats').get();
   String lastChatId = (querySnapshot.docs.length + 1).toString();
@@ -25,6 +27,7 @@ Future<void> addChatWithUser(String id) async {
   newDict = Map.from(doc["chats"]);
   newDict[user.uid] = lastChatId;
   storage.collection('users').doc(id).update({"chats": newDict});
+  return lastChatId;
 }
 
 class AddChat extends StatefulWidget {
@@ -57,21 +60,29 @@ class _AddChatState extends State<AddChat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Add chat"),
-        centerTitle: true,
-      ),
-      drawer: AppDrawer(),
-      body: _loading
-          ? Center(child: CircularProgressIndicator())
-          : Container(
-              child: ListView.builder(
-                  itemCount: allData!.length,
-                  itemBuilder: ((context, index) => RawMaterialButton(
-                        onPressed: () => addChatWithUser(allData![index].id),
-                        child: Text(allData![index].data()["username"]),
-                      ))),
-            ),
-    );
+        appBar: AppBar(
+          title: Text("Add chat"),
+          centerTitle: true,
+        ),
+        drawer: AppDrawer(),
+        body: _loading
+            ? Center(child: CircularProgressIndicator())
+            : Container(
+                child: ListView.builder(
+                itemCount: allData!.length,
+                itemBuilder: ((context, index) => Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: UserCard(
+                      imageUrl: allData![index].data()["avatar_url"],
+                      username: allData![index].data()["username"],
+                      onClick: () async {
+                        String? chatId =
+                            await addChatWithUser(allData![index].id);
+                        Navigator.of(context).push(new MaterialPageRoute(
+                            builder: (context) => ChatScreen(
+                                userId: allData![index].id, chatId: chatId!)));
+                      },
+                    ))),
+              )));
   }
 }
