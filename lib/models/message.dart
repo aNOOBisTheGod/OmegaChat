@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Message {
   String id;
   DateTime dateTime;
@@ -16,5 +18,13 @@ class Message {
       "sender_id": this.senderId,
       "content": this.content
     };
+  }
+
+  factory Message.fromJson(Map message) {
+    return Message(
+        id: message["id"],
+        dateTime: (message['date_time'] as Timestamp).toDate(),
+        senderId: message["sender_id"],
+        content: message["content"]);
   }
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:omegachat/models/user.dart';
+import 'package:omegachat/models/omega_user.dart';
 import 'package:omegachat/screens/chat.dart';
 import 'package:omegachat/widgets/app_drawer.dart';
+import 'package:omegachat/widgets/user_card.dart';
 
 final auth = FirebaseAuth.instance;
 final storage = FirebaseFirestore.instance;
@@ -67,16 +68,18 @@ class _ChatsPageState extends State<ChatsPage> {
                     child: ListView.builder(
                         itemCount: chats.length,
                         itemBuilder: (context, index) {
-                          return RawMaterialButton(
-                            onPressed: () => Navigator.of(context).push(
-                                new MaterialPageRoute(
-                                    builder: ((context) => ChatScreen(
-                                        chatId:
-                                            user!.chats[chats[index].id])))),
-                            child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [Text(chats[index].username)]),
-                          );
+                          return UserCard(
+                              onClick: () {
+                                Navigator.of(context)
+                                    .push(new MaterialPageRoute(
+                                        builder: ((context) => ChatScreen(
+                                              chatId:
+                                                  user!.chats[chats[index].id],
+                                              userId: chats[index].id,
+                                            ))));
+                              },
+                              imageUrl: chats[index].avatarUrl,
+                              username: chats[index].username);
                         }))
                 : Padding(
                     padding: const EdgeInsets.all(70.0),

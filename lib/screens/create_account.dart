@@ -16,7 +16,8 @@ Future<void> createAccount(context, String username, String email,
   // ignore: avoid_single_cascade_in_expression_statements
   auth.createUserWithEmailAndPassword(email: email, password: password)
     ..then((value) async {
-      String avatarUrl = "";
+      String avatarUrl =
+          "https://cdn.pixabay.com/photo/2017/08/27/20/53/fishing-2687481_960_720.jpg";
       if (image != null) {
         final storageRef = FirebaseStorage.instance.ref();
         final avatarRef = storageRef.child(auth.currentUser!.uid);
@@ -25,6 +26,7 @@ Future<void> createAccount(context, String username, String email,
         });
       }
       final User user = await auth.currentUser!;
+      user.updatePhotoURL(avatarUrl);
       final uid = user.uid;
       storage.collection('users').doc(uid).set({
         "username": username,
