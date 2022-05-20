@@ -1,12 +1,15 @@
 on:
-  push:
+  pull-request:
     branches:
       - main
 env:
   PRIVATE : ${{ secrets.GOOGLE }}
-name: "Build & Release"
+name: "Pull Request Check"
 jobs:
   build:
+    permissions:
+      checks: write
+      pull-requests: write
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
@@ -22,9 +25,3 @@ jobs:
           cat android/app/google-services.json
       - run: flutter pub get
       - run: flutter build apk
-      - name: Push to Releases
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "build/app/outputs/apk/release/*"
-          tag: v1.0.${{ github.run_number }}
-          token: ${{ secrets.TOKEN }}
