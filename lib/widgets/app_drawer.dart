@@ -25,7 +25,7 @@ class _AppDrawerState extends State<AppDrawer> {
       child: Column(children: [
         Stack(
           children: [
-            Image.network(user!.photoURL!),
+            Image.network(user!.photoURL!, fit: BoxFit.cover),
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 10),
               child: Column(

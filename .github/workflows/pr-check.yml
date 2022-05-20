@@ -3,7 +3,7 @@ on:
     branches:
       - main
 env:
-  PRIVATE : ${{ secrets.GOOGLE }}
+  GOOGLE : ${{ secrets.GOOGLE }}
 name: "Pull Request Check"
 jobs:
   build:
