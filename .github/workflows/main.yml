@@ -19,7 +19,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '2.10.1'
+          flutter-version: '2.10.5'
       - run: |
           touch android/app/google-services.json
           echo $GOOGLE >> android/app/google-services.json
