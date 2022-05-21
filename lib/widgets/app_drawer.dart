@@ -33,8 +33,16 @@ class _AppDrawerState extends State<AppDrawer> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Omega Chat"),
-                  Text(user!.email!),
+                  Text(
+                    "Omega Chat",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1!.color),
+                  ),
+                  Text(
+                    user!.email!,
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1!.color),
+                  ),
                 ],
               ),
             )
@@ -47,9 +55,14 @@ class _AppDrawerState extends State<AppDrawer> {
             else
               Navigator.of(context).pop();
           },
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.message_outlined), Text("Chats")]),
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Icon(Icons.message_outlined),
+            Text(
+              "Chats",
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2!.color),
+            )
+          ]),
         ),
         RawMaterialButton(
           onPressed: () {
@@ -58,9 +71,14 @@ class _AppDrawerState extends State<AppDrawer> {
             else
               Navigator.of(context).pop();
           },
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.add), Text("Add chat")]),
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Icon(Icons.add),
+            Text(
+              "Add chat",
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2!.color),
+            )
+          ]),
         ),
         RawMaterialButton(
           onPressed: () {
@@ -70,18 +88,28 @@ class _AppDrawerState extends State<AppDrawer> {
             else
               Navigator.of(context).pop();
           },
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.settings_outlined), Text("Settings")]),
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Icon(Icons.settings_outlined),
+            Text(
+              "Settings",
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2!.color),
+            )
+          ]),
         ),
         RawMaterialButton(
           onPressed: () {
             Navigator.of(context).pushReplacement(new MaterialPageRoute(
                 builder: (context) => ChooseEntryMethodScreen()));
           },
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.logout), Text("Log out")]),
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Icon(Icons.logout),
+            Text(
+              "Log out",
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2!.color),
+            )
+          ]),
         ),
       ]),
     );

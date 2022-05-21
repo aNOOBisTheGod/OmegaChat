@@ -61,7 +61,11 @@ class _AddChatState extends State<AddChat> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Add chat"),
+          title: Text(
+            "Add chat",
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText2!.color),
+          ),
           centerTitle: true,
         ),
         drawer: AppDrawer(),

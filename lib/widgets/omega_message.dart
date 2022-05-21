@@ -30,7 +30,8 @@ class OmegaMessage extends StatelessWidget {
                     ),
                     child: Text(
                       message.content,
-                      style: const TextStyle(color: Colors.white, fontSize: 15),
+                      style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText2!.color),
                     ),
                   ),
                 ),
@@ -56,7 +57,8 @@ class OmegaMessage extends StatelessWidget {
                     ),
                     child: Text(
                       message.content,
-                      style: const TextStyle(color: Colors.white, fontSize: 15),
+                      style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText2!.color),
                     ),
                   ),
                 ),

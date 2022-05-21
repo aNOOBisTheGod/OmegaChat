@@ -57,7 +57,11 @@ class _ChatsPageState extends State<ChatsPage> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           centerTitle: true,
-          title: Text("Omega Chat"),
+          title: Text(
+            "Omega Chat",
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText2!.color),
+          ),
         ),
         drawer: AppDrawer(),
         body: _loading
@@ -89,7 +93,11 @@ class _ChatsPageState extends State<ChatsPage> {
                     padding: const EdgeInsets.all(70.0),
                     child: Center(
                       child: Text(
-                          "So empty in here... Try to add chat(swipe to the right)"),
+                        "So empty in here... Try to add chat(swipe to the right)",
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
+                      ),
                     ),
                   ));
   }

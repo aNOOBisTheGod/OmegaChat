@@ -21,7 +21,12 @@ class _ChooseEntryMethodScreenState extends State<ChooseEntryMethodScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Omega Chat")),
+      appBar: AppBar(
+        title: Text(
+          "Omega Chat",
+          style: TextStyle(color: Theme.of(context).textTheme.bodyText2!.color),
+        ),
+      ),
       body: Container(
           child: Center(
         child: Column(
@@ -30,12 +35,20 @@ class _ChooseEntryMethodScreenState extends State<ChooseEntryMethodScreen> {
             RawMaterialButton(
               onPressed: () => Navigator.of(context).push(
                   new MaterialPageRoute(builder: (context) => LogInAccount())),
-              child: Text("Log In"),
+              child: Text(
+                "Log In",
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color),
+              ),
             ),
             RawMaterialButton(
               onPressed: () => Navigator.of(context).push(new MaterialPageRoute(
                   builder: (context) => CreateAccountScreen())),
-              child: Text("Sign Up"),
+              child: Text(
+                "Sign Up",
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color),
+              ),
             )
           ],
         ),

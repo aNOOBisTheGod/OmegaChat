@@ -13,7 +13,10 @@ class LogInAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Omega Chat"),
+        title: Text(
+          "Omega Chat",
+          style: TextStyle(color: Theme.of(context).textTheme.bodyText2!.color),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.login),

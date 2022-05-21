@@ -9,7 +9,7 @@ class ThemeChooser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = themesJson[themeId]["theme"];
+    ThemeData theme = themesJson[themeId]!["theme"];
     return Consumer<ThemeModel>(
         builder: (context, ThemeModel themeNotifier, child) {
       return GestureDetector(
@@ -17,23 +17,31 @@ class ThemeChooser extends StatelessWidget {
           if (themeNotifier.themeIndex == themeId) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(
-                  "Theme ${themesJson[themeId]["name"]} is already in use"),
+                "Theme ${themesJson[themeId]!["name"]} is already in use",
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText2!.color),
+              ),
               duration: Duration(seconds: 1),
             ));
             return;
           }
           themeNotifier.themeIndex = themeId;
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content:
-                Text("Theme ${themesJson[themeId]["name"]} has been setted up"),
+            content: Text(
+              "Theme ${themesJson[themeId]!["name"]} has been setted up",
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2!.color),
+            ),
             duration: Duration(seconds: 1),
           ));
         },
         child: Container(
           alignment: Alignment.center,
           child: Text(
-            themesJson[themeId]["name"],
-            style: TextStyle(fontWeight: FontWeight.w700),
+            themesJson[themeId]!["name"],
+            style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+                fontWeight: FontWeight.w700),
           ),
           color: theme.cardColor,
           width: 100,

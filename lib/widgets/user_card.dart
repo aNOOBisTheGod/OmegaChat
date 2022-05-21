@@ -27,7 +27,11 @@ class UserCard extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width * .1,
           ),
-          Text(username),
+          Text(
+            username,
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText2!.color),
+          ),
         ]),
       ),
     );
