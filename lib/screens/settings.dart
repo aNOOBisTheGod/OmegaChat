@@ -16,23 +16,23 @@ class UserSettings extends StatefulWidget {
 class _UserSettingsState extends State<UserSettings> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeModel>(
-        builder: (context, ThemeModel themeNotifier, child) {
+    // return Consumer<ThemeModel>(
+    //     builder: (context, ThemeModel themeNotifier, child) {
       return Scaffold(
           appBar: AppBar(
             title: Text("Settings"),
             centerTitle: true,
           ),
           drawer: AppDrawer(),
-          floatingActionButton: FloatingActionButton(onPressed: () {
-            themeNotifier.isDark
-                ? themeNotifier.themeIndex = 1
-                : themeNotifier.themeIndex = 0;
-          }),
+          // floatingActionButton: FloatingActionButton(onPressed: () {
+          //   themeNotifier.isDark
+          //       ? themeNotifier.themeIndex = 1
+          //       : themeNotifier.themeIndex = 0;
+          // }),
           body: ListView.builder(
             itemBuilder: (context, index) => ThemeChooser(themeId: index),
             itemCount: themesJson.length,
           ));
-    });
+    // });
   }
 }
