@@ -67,7 +67,11 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       appBar: AppBar(
         title: widget._loading
-            ? Text("Omega Chat")
+            ? Text(
+                "Omega Chat",
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText2!.color),
+              )
             : Row(
                 children: [
                   CircleAvatar(
@@ -75,7 +79,11 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
-                    child: Text(widget.receiver!.username),
+                    child: Text(
+                      widget.receiver!.username,
+                      style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color),
+                    ),
                   ),
                 ],
               ),
@@ -96,7 +104,14 @@ class _ChatScreenState extends State<ChatScreen> {
                     builder: (BuildContext ctx, AsyncSnapshot snapShot) {
                       if (!snapShot.hasData) {
                         return Center(
-                          child: Text("Nothing here"),
+                          child: Text(
+                            "Nothing here",
+                            style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .color),
+                          ),
                         );
                       } else {
                         return Expanded(

@@ -28,7 +28,13 @@ class _VerifyEmailState extends State<VerifyEmail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Email verification")),
+      appBar: AppBar(
+          title: Text(
+        "Email verification",
+        style: TextStyle(
+          color: Theme.of(context).textTheme.bodyText2!.color,
+        ),
+      )),
       body: Container(
         child: Center(
             child: Column(
@@ -37,7 +43,10 @@ class _VerifyEmailState extends State<VerifyEmail> {
             Padding(
               padding: const EdgeInsets.all(50.0),
               child: Text(
-                  "Email has been sent to email you've provided. Click the link  in there"),
+                "Email has been sent to email you've provided. Click the link  in there",
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color),
+              ),
             ),
           ],
         )),

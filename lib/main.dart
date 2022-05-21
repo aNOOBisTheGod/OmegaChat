@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             home: auth.currentUser == null
                 ? ChooseEntryMethodScreen()
                 : ChatsPage(),
-            theme: themesJson[themeNotifier.themeIndex]["theme"],
+            theme: themesJson[themeNotifier.themeIndex]!["theme"],
             routes: {
               ChatsPage.routeName: (context) => ChatsPage(),
               AddChat.routeName: (context) => AddChat(),

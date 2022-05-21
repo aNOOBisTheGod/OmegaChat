@@ -78,7 +78,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Omega Chat"),
+          title: Text(
+            "Omega Chat",
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText2!.color),
+          ),
           automaticallyImplyLeading: false,
         ),
         floatingActionButton: FloatingActionButton(
