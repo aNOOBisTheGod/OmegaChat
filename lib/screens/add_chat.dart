@@ -61,6 +61,11 @@ class _AddChatState extends State<AddChat> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Icon(Icons.menu)),
           title: Text(
             "Add chat",
             style:
@@ -68,15 +73,12 @@ class _AddChatState extends State<AddChat> {
           ),
           centerTitle: true,
         ),
-        drawer: AppDrawer(),
         body: _loading
             ? Center(child: CircularProgressIndicator())
             : Container(
                 child: ListView.builder(
                 itemCount: allData!.length,
-                itemBuilder: ((context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: UserCard(
+                itemBuilder: ((context, index) => UserCard(
                       imageUrl: allData![index].data()["avatar_url"],
                       username: allData![index].data()["username"],
                       onClick: () async {
@@ -86,7 +88,7 @@ class _AddChatState extends State<AddChat> {
                             builder: (context) => ChatScreen(
                                 userId: allData![index].id, chatId: chatId!)));
                       },
-                    ))),
+                    )),
               )));
   }
 }

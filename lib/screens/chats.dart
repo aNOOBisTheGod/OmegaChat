@@ -55,6 +55,11 @@ class _ChatsPageState extends State<ChatsPage> {
                   print(chats);
                 })),
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Icon(Icons.menu)),
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           centerTitle: true,
           title: Text(
@@ -63,7 +68,6 @@ class _ChatsPageState extends State<ChatsPage> {
                 TextStyle(color: Theme.of(context).textTheme.bodyText2!.color),
           ),
         ),
-        drawer: AppDrawer(),
         body: _loading
             ? Center(
                 child: CircularProgressIndicator(),

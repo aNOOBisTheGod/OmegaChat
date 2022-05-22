@@ -20,6 +20,11 @@ class _UserSettingsState extends State<UserSettings> {
     //     builder: (context, ThemeModel themeNotifier, child) {
     return Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Icon(Icons.menu)),
           title: Text(
             "Settings",
             style:
@@ -27,7 +32,6 @@ class _UserSettingsState extends State<UserSettings> {
           ),
           centerTitle: true,
         ),
-        drawer: AppDrawer(),
         // floatingActionButton: FloatingActionButton(onPressed: () {
         //   themeNotifier.isDark
         //       ? themeNotifier.themeIndex = 1
