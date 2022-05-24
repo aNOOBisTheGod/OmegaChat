@@ -19,7 +19,7 @@ TEXT THEME...
 <ul>
 <li>scaffold - bodyText1
 <li>all buttons - bodyText2
-<li>user card - displayMedium
+<li>user card - headline4
 <li>message received - bodyText2
 <li>message sent - bodyText2
 <li>appbar - bodyText2

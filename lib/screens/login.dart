@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:omegachat/screens/chats.dart';
+import 'package:omegachat/screens/home.dart';
 import 'package:omegachat/widgets/text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -24,7 +25,8 @@ class LogInAccount extends StatelessWidget {
               .signInWithEmailAndPassword(
                   email: emailContoller.text, password: passwordContoller.text)
               .then((value) => Navigator.of(context).pushReplacement(
-                  new MaterialPageRoute(builder: (context) => ChatsPage())))),
+                  new MaterialPageRoute(
+                      builder: (context) => OmegaHomePage())))),
       body: Container(
         child: Center(
             child: Padding(
