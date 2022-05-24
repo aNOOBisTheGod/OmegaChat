@@ -23,7 +23,6 @@ Future<void> writeMessage(String chatId, content) async {
       dateTime: DateTime.now(),
       senderId: auth.currentUser!.uid,
       content: content);
-  ;
   messages.add(message.toJson());
   storage.collection('chats').doc(chatId).update({"messages": messages});
 }
@@ -123,9 +122,12 @@ class _ChatScreenState extends State<ChatScreen> {
                         );
                       }
                     }),
-                MainTextField(
-                    controller: _messageController,
-                    hintText: "Insert email content"),
+                Padding(
+                  padding: const EdgeInsets.only(right: 70, left: 8),
+                  child: MainTextField(
+                      controller: _messageController,
+                      hintText: "Insert email content"),
+                ),
               ],
             ),
     );

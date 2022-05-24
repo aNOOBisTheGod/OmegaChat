@@ -9,7 +9,12 @@ class MainTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: this.controller,
-      decoration: InputDecoration(hintText: this.hintText),
+      cursorColor: Theme.of(context).primaryColor,
+      decoration: InputDecoration(
+          hintText: this.hintText,
+          fillColor: Theme.of(context).primaryColor,
+          focusColor: Theme.of(context).primaryColor,
+          hoverColor: Theme.of(context).primaryColor),
     );
   }
 }

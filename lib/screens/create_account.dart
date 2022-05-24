@@ -28,6 +28,7 @@ Future<void> createAccount(context, String username, String email,
       }
       final User user = await auth.currentUser!;
       user.updatePhotoURL(avatarUrl);
+      user.updateDisplayName(username);
       final uid = user.uid;
       storage.collection('users').doc(uid).set({
         "username": username,

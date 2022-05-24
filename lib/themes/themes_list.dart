@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
 
-ThemeData darkTheme = ThemeData(
-    fontFamily: 'RobotoMono',
-    textTheme: TextTheme(
-        bodyText1: TextStyle(color: Colors.white),
-        bodyText2: TextStyle(color: Colors.white)),
-    accentColor: Color(0xFFDA0037),
-    scaffoldBackgroundColor: Color(0x171717),
-    cardColor: Color(0xFFEDEDED),
-    appBarTheme: AppBarTheme(backgroundColor: Color(0xFF444444)),
-    drawerTheme: DrawerThemeData(backgroundColor: Color(0xFF444444)));
-
 ThemeData omegaTheme = ThemeData(
     fontFamily: 'RobotoMono',
     textTheme: TextTheme(
         bodyText1: TextStyle(color: Colors.white),
-        bodyText2: TextStyle(color: Colors.white)),
+        bodyText2: TextStyle(color: Colors.white),
+        displayMedium: TextStyle(color: Color(0xFF62786A))),
     accentColor: Color(0xFFEB4960),
     scaffoldBackgroundColor: Color(0xFF29373A),
     cardColor: Color(0xFFFCCEAA),
     appBarTheme: AppBarTheme(backgroundColor: Color(0xFF9AB999)),
-    drawerTheme: DrawerThemeData(backgroundColor: Color(0xFFF4837D)));
+    drawerTheme: DrawerThemeData(backgroundColor: Color(0xFFF4837D)),
+    primaryColorDark: Color(0xFFF4837D),
+    primaryColorLight: Color(0xFFEB4960),
+    primaryColor: Color(0xFFFCCEAA));
+
+ThemeData darkTheme = ThemeData(
+  fontFamily: 'RobotoMono',
+  textTheme: TextTheme(
+      bodyText1: TextStyle(color: Colors.white),
+      bodyText2: TextStyle(color: Colors.white)),
+  accentColor: Color(0xFFDA0037),
+  scaffoldBackgroundColor: Color(0x171717),
+  cardColor: Color(0xFFEDEDED),
+  appBarTheme: AppBarTheme(backgroundColor: Color(0xFF444444)),
+  drawerTheme: DrawerThemeData(backgroundColor: Color(0xFF444444)),
+);
 
 ThemeData forestTheme = ThemeData(
     fontFamily: 'RobotoMono',
