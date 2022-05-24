@@ -78,16 +78,20 @@ class _AddChatState extends State<AddChat> {
             : Container(
                 child: ListView.builder(
                 itemCount: allData!.length,
-                itemBuilder: ((context, index) => UserCard(
-                      imageUrl: allData![index].data()["avatar_url"],
-                      username: allData![index].data()["username"],
-                      onClick: () async {
-                        String? chatId =
-                            await addChatWithUser(allData![index].id);
-                        Navigator.of(context).push(new MaterialPageRoute(
-                            builder: (context) => ChatScreen(
-                                userId: allData![index].id, chatId: chatId!)));
-                      },
+                itemBuilder: ((context, index) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: UserCard(
+                        imageUrl: allData![index].data()["avatar_url"],
+                        username: allData![index].data()["username"],
+                        onClick: () async {
+                          String? chatId =
+                              await addChatWithUser(allData![index].id);
+                          Navigator.of(context).push(new MaterialPageRoute(
+                              builder: (context) => ChatScreen(
+                                  userId: allData![index].id,
+                                  chatId: chatId!)));
+                        },
+                      ),
                     )),
               )));
   }

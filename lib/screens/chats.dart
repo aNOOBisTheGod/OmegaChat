@@ -50,10 +50,7 @@ class _ChatsPageState extends State<ChatsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
-            onPressed: () => setState(() {
-                  print(chats);
-                })),
+        floatingActionButton: FloatingActionButton(onPressed: () {}),
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {

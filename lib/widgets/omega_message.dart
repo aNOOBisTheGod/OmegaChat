@@ -21,7 +21,7 @@ class OmegaMessage extends StatelessWidget {
                     padding: const EdgeInsets.all(15),
                     margin: const EdgeInsets.only(bottom: 5),
                     decoration: BoxDecoration(
-                      color: Colors.indigo.shade600,
+                      color: Theme.of(context).primaryColorLight,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         bottomLeft: Radius.circular(20),
@@ -48,7 +48,7 @@ class OmegaMessage extends StatelessWidget {
                     padding: const EdgeInsets.all(15),
                     margin: const EdgeInsets.only(bottom: 5),
                     decoration: BoxDecoration(
-                      color: Colors.amber.shade600,
+                      color: Theme.of(context).primaryColorDark,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20),
