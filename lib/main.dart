@@ -4,6 +4,7 @@ import 'package:omegachat/screens/chats.dart';
 import 'package:omegachat/screens/choose_entry_method.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:omegachat/screens/custom_theme.dart';
 import 'package:omegachat/screens/home.dart';
 import 'package:omegachat/screens/settings.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
             routes: {
               ChatsPage.routeName: (context) => ChatsPage(),
               AddChat.routeName: (context) => AddChat(),
-              UserSettings.routeName: (context) => UserSettings()
+              UserSettings.routeName: (context) => UserSettings(),
+              CustomThemePage.routeName: (context) => CustomThemePage()
             },
           );
         }));

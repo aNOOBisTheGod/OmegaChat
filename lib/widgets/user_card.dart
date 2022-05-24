@@ -29,8 +29,8 @@ class UserCard extends StatelessWidget {
           ),
           Text(
             username,
-            style: TextStyle(
-                color: Theme.of(context).textTheme.displayMedium!.color),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.headline4!.color),
           ),
         ]),
       ),

@@ -9,6 +9,8 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+import 'home.dart';
+
 final auth = FirebaseAuth.instance;
 final storage = FirebaseFirestore.instance;
 
@@ -35,9 +37,10 @@ Future<void> createAccount(context, String username, String email,
         "email": email,
         "password": password,
         "chats": {},
-        "avatar_url": avatarUrl
+        "avatar_url": avatarUrl,
+        "themes": []
       }).then((value) => Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => ChatsPage())));
+          new MaterialPageRoute(builder: (context) => OmegaHomePage())));
     });
 }
 

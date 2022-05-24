@@ -5,7 +5,7 @@ ThemeData omegaTheme = ThemeData(
     textTheme: TextTheme(
         bodyText1: TextStyle(color: Colors.white),
         bodyText2: TextStyle(color: Colors.white),
-        displayMedium: TextStyle(color: Color(0xFF62786A))),
+        headline4: TextStyle(color: Color(0xFF62786A))),
     accentColor: Color(0xFFEB4960),
     scaffoldBackgroundColor: Color(0xFF29373A),
     cardColor: Color(0xFFFCCEAA),

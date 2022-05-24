@@ -9,13 +9,15 @@ class OmegaUser {
   String password;
   String avatarUrl;
   Map chats;
+  List? customThemes;
   OmegaUser(
       {required this.id,
       required this.username,
       required this.email,
       required this.password,
       required this.avatarUrl,
-      required this.chats});
+      required this.chats,
+      this.customThemes});
 
   factory OmegaUser.fromJson(String id, Map data) {
     return OmegaUser(
@@ -24,7 +26,8 @@ class OmegaUser {
         email: data["email"],
         password: data["password"],
         avatarUrl: data["avatar_url"],
-        chats: data["chats"]);
+        chats: data["chats"],
+        customThemes: data['themes']);
   }
 
   static Future<OmegaUser> fromId(String id) async {
@@ -36,6 +39,7 @@ class OmegaUser {
         email: newDict["email"],
         password: newDict["password"],
         avatarUrl: newDict["avatar_url"],
-        chats: newDict["chats"]);
+        chats: newDict["chats"],
+        customThemes: newDict["themes"]);
   }
 }
