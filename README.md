@@ -1,16 +1,14 @@
-# omegachat
+# Omega Chat
 
-A new Flutter project.
+![Omega Chat](assets/icons/OmegaChatLogo.png?raw=true "Title")
 
-## Getting Started
+## Descrtiption
+This is the flutter chat project with a custom themes and open-source code. You can add your own themes, create new features and do everything you want to do. Create your own Omega Chat and enjoy it! Or you can just download original version for android from the releases of this repo. I don't have 100 bucks to publish app to testflight so sorry IOS users((
 
-This project is a starting point for a Flutter application.
+## WHY
+Because in my opinion chat is the really good way to improve your programming skills and also because I love flutter so much
 
-A few resources to get you started if this is your first Flutter project:
+## If you wanna contribute or you've seen a bug
+Just fork this repo and do your own changes. Also you can contact me in discord: aNOOBis#9315
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### enjoy!
